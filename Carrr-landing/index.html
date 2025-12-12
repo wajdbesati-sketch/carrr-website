@@ -3,443 +3,791 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Car RR | تصليح凹ّات السيارات على البارد (PDR)</title>
-  <meta name="description" content="Car RR متخصّصون في تعديل ومعالجة أضرار هيكل السيارة بتقنية PDR بدون سمكرة ولا رش. نخدم الرياض والمدينة المنورة.">
+  <title>Car RR | Paintless Dent Repair (PDR)</title>
+  <meta name="description" content="Car RR متخصصون في إصلاح凹ّات وصدمات هيكل السيارة بتقنية PDR بدون سمكرة ولا رش. نخدم الرياض والمدينة المنورة." />
+
   <style>
-    :root {
-      --primary: #0056b3;
-      --primary-dark: #003a7a;
-      --primary-light: #e4f0ff;
-      --accent: #f9a826;
-      --bg: #f5f5f5;
-      --text: #222;
-      --white: #ffffff;
-      --radius: 12px;
-      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    :root{
+      --bg:#0b1220;
+      --bg2:#0f1b34;
+      --text:#eaf0ff;
+      --muted:#a9b7d6;
+      --line: rgba(255,255,255,.10);
+      --primary:#3b82f6;
+      --primary2:#1d4ed8;
+      --accent:#f59e0b;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(59,130,246,.25), transparent 60%),
+        radial-gradient(900px 500px at 85% 0%, rgba(245,158,11,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.7;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .wrap{ max-width: var(--max); margin:0 auto; padding:0 18px; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 12px; border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius:999px; color:var(--muted);
+      font-size:.85rem;
     }
 
-    body {
-      background-color: var(--bg);
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 16px; border-radius:999px;
+      border:1px solid transparent; cursor:pointer;
+      font-weight:800; font-size:.95rem;
+      transition: transform .12s ease, opacity .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+      white-space: nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      color:white;
+      box-shadow: var(--shadow);
+    }
+    .btn-primary:hover{ opacity:.95; }
+    .btn-outline{
+      background: rgba(255,255,255,.03);
+      border-color: var(--line);
       color: var(--text);
-      line-height: 1.7;
     }
-
-    a { text-decoration: none; }
-
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    /* الهيدر */
-    header {
-      background: linear-gradient(135deg, var(--primary-dark), #020815);
-      color: var(--white);
-      padding: 14px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
-
-    .logo-img {
-      height: 42px;
-    }
-
-    .logo-text-main {
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-
-    .logo-text-sub {
-      font-size: 0.8rem;
-      opacity: 0.85;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 12px;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a {
-      color: #dbe8ff;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent);
-      color: #222;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    /* الهيرو */
-    .hero {
-      background: radial-gradient(circle at top left, var(--primary-light), #ffffff 40%, #f7f9ff 80%);
-      padding: 40px 0 52px;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 86, 179, 0.085);
-      color: var(--primary-dark);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-    }
-
-    .hero-title {
-      font-size: 2.1rem;
-      margin-bottom: 12px;
-      font-weight: 800;
-      color: #041933;
-    }
-
-    .hero-subtitle {
-      font-size: 0.95rem;
-      color: #444;
-      margin-bottom: 18px;
-      max-width: 480px;
-    }
-
-    .hero-tags {
-      font-size: 0.85rem;
-      margin-bottom: 14px;
-      color: #555;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: var(--white);
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
+    .btn-outline:hover{ background: rgba(255,255,255,.06); }
+    .btn-whatsapp{
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color:white;
       box-shadow: var(--shadow);
     }
+    .btn-whatsapp:hover{ opacity:.95; }
 
-    .btn-primary:hover {
-      background: var(--primary-dark);
+    /* Header */
+    header{
+      position: sticky; top:0; z-index:50;
+      background: rgba(11,18,32,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 0;
+      gap: 14px;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 240px; }
+    .brand .logo{
+      width:46px; height:46px; border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .brand .titles{ display:flex; flex-direction:column; line-height:1.15; }
+    .brand .titles .t1{ font-weight:950; font-size:1.05rem; letter-spacing:.3px; }
+    .brand .titles .t2{ color:var(--muted); font-size:.82rem; margin-top:2px; }
+
+    nav ul{
+      list-style:none; display:flex; gap:14px; padding:0; margin:0;
+      align-items:center;
+    }
+    nav a{
+      color: var(--muted);
+      font-weight:800;
+      font-size:.92rem;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
     }
 
-    .btn-outline {
-      border-radius: 999px;
-      border: 1px solid var(--primary);
-      padding: 9px 16px;
-      background: transparent;
-      color: var(--primary-dark);
-      font-size: 0.9rem;
-      cursor: pointer;
-      font-weight: 600;
+    .nav-right{
+      display:flex; align-items:center; gap:10px; justify-content:flex-end;
+      min-width: 260px;
     }
 
-    .hero-note {
-      font-size: 0.85rem;
-      color: #555;
+    .lang{
+      display:inline-flex; gap:6px; padding:6px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+    .lang button{
+      border:0; background:transparent; color:var(--muted);
+      padding:8px 12px; border-radius:999px;
+      cursor:pointer; font-weight:900; font-size:.9rem;
+    }
+    .lang button.active{
+      background: rgba(59,130,246,.18);
+      color: var(--text);
+      border:1px solid rgba(59,130,246,.35);
     }
 
-    .hero-right {
-      text-align: center;
+    /* Hero */
+    .hero{ padding: 34px 0 22px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
     }
-
-    .hero-logo {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 16px;
+    .hero h1{
+      margin: 12px 0 10px;
+      font-size: clamp(1.65rem, 2.6vw, 2.4rem);
+      line-height:1.25;
+      font-weight: 950;
+      letter-spacing: .2px;
     }
-
-    .hero-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      text-align: right;
-    }
-
-    .hero-card h3 {
+    .lead{
+      color: var(--muted);
       font-size: 1rem;
-      margin-bottom: 8px;
-      color: var(--primary-dark);
+      max-width: 56ch;
+      margin:0 0 16px;
+    }
+    .cta-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
     }
 
-    .hero-card ul {
-      list-style: none;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-
-    .hero-card ul li {
-      margin-bottom: 6px;
-    }
-
-    .hero-card strong { color: var(--primary); }
-
-    section { padding: 40px 0; }
-
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 22px;
-    }
-
-    .card {
-      background: var(--white);
+    .hero-card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       border-radius: var(--radius);
       padding: 16px;
       box-shadow: var(--shadow);
-      font-size: 0.9rem;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .hero-card .logo-big{
+      width: 100%;
+      display:flex; justify-content:center;
+    }
+    .logo-big img{
+      width: 210px; height:auto;
+      filter: drop-shadow(0 12px 22px rgba(0,0,0,.35));
+    }
+    .hero-card .mini{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .mini .chip{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 14px;
+      padding:10px;
+      color: var(--muted);
+      font-size:.9rem;
+    }
+    .mini .chip strong{ color: var(--text); }
+
+    /* Sections */
+    section{ padding: 18px 0; }
+
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin: 8px 0 12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      max-width: 70ch;
+      font-size:.95rem;
     }
 
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: var(--primary-dark);
+    .grid{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(4, minmax(0,1fr));
     }
 
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
-      counter-reset: step;
-    }
-
-    .step-card {
-      position: relative;
-      padding-top: 26px;
-    }
-
-    .step-card::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-    }
-
-    .gallery-item {
-      background: #d9d9d9;
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
       border-radius: var(--radius);
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: #555;
+      padding: 14px;
+      box-shadow: 0 12px 26px rgba(0,0,0,.18);
     }
 
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .testimonial .name {
-      margin-top: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #555;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 24px;
-    }
-
-    form {
-      display: grid;
-      gap: 10px;
-      font-size: 0.9rem;
-    }
-
-    label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    input, textarea {
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 0.9rem;
-      width: 100%;
-    }
-
-    textarea { min-height: 80px; resize: vertical; }
-
-    .contact-info p {
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-
-    .contact-info a {
-      color: var(--primary-dark);
-      font-weight: 600;
-    }
-
-    footer {
-      background: #020815;
-      color: #d2dcff;
-      padding: 16px 0;
-      font-size: 0.8rem;
-      margin-top: 26px;
-    }
-
-    footer .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-    }
-
-    @media (max-width: 768px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-      .hero-title { font-size: 1.7rem; }
-      .nav-links { display: none; }
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ===== Tabs (Arabic / English) ===== */
-    .tabs-container {
-      width: 100%;
-      margin: 40px auto;
-      max-width: 900px;
-    }
-
-    .tabs-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .tabs-buttons button {
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
+    .card h3{
+      margin:0 0 6px;
       font-size: 1rem;
-      background: #ddd;
-      font-weight: 600;
+      font-weight: 950;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .card .icon{
+      width: 38px; height:38px;
+      border-radius: 12px;
+      background: rgba(59,130,246,.14);
+      border:1px solid rgba(59,130,246,.25);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom: 10px;
+      font-weight: 950;
+      color: var(--text);
     }
 
-    .tabs-buttons button.active {
-      background: var(--primary);
-      color: var(--white);
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:12px;
+    }
+    .step{
+      position:relative;
+      padding-top: 14px;
+    }
+    .step .num{
+      position:absolute;
+      top: 12px;
+      inset-inline-end: 12px;
+      width: 26px; height:26px;
+      border-radius: 999px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(245,158,11,.14);
+      border:1px solid rgba(245,158,11,.28);
+      color: var(--text);
+      font-weight: 950;
+      font-size:.9rem;
     }
 
-    .tab-content {
-      display: none;
-      background: var(--white);
-      padding: 22px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      line-height: 1.7;
-      text-align: right;
+    .split{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 12px;
+      align-items: stretch;
     }
 
-    .tab-content.active {
-      display: block;
+    .socials{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .social-item{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding: 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .social-item .left{
+      display:flex; align-items:center; gap:10px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .badge{
+      font-size:.82rem;
+      color: var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.02);
     }
 
-    .tab-section {
-      margin-bottom: 22px;
+    footer{
+      margin-top: 26px;
+      padding: 18px 0 26px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    .foot{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
     }
 
-    .tab-section h3 {
-      margin-bottom: 8px;
-      color: var(--primary-dark);
+    /* Floating WhatsApp (اختياري لكن احترافي) */
+    .float-wa{
+      position: fixed;
+      bottom: 18px;
+      inset-inline-end: 18px;
+      z-index: 80;
     }
+    .float-wa .btn{ padding: 12px 14px; }
 
-    .tab-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .steps{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .split{ grid-template-columns: 1fr; }
+      nav ul{ display:none; }
+      .brand{ min-width: unset; }
+      .nav-right{ min-width: unset; }
+    }
+    @media (max-width: 520px){
+      .grid{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .hero-card .mini{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo">
+        <img src="logo-carrr.jpg" alt="Car RR Logo" />
+      </div>
+      <div class="titles">
+        <div class="t1">Car RR</div>
+        <div class="t2" data-i18n="brandSub">تصليح السيارات على البارد (PDR)</div>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#services" data-i18n="navServices">الخدمات</a></li>
+        <li><a href="#how" data-i18n="navHow">طريقة العمل</a></li>
+        <li><a href="#social" data-i18n="navSocial">منصاتنا</a></li>
+        <li><a href="#careers" data-i18n="navCareers">التوظيف</a></li>
+        <li><a href="#training" data-i18n="navTraining">التدريب</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang" role="tablist" aria-label="Language switcher">
+        <button id="btn-ar" class="active" onclick="setLang('ar')" aria-selected="true">AR</button>
+        <button id="btn-en" onclick="setLang('en')" aria-selected="false">EN</button>
+      </div>
+      <a class="btn btn-whatsapp" href="https://wa.me/966505888003" target="_blank" rel="noopener">
+        <span>WhatsApp</span>
+        <span data-i18n="ctaBook">حجز موعد</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pill" data-i18n="pillTop">🔧 خبراء PDR — بدون سمكرة، بدون رش</div>
+
+        <h1 data-i18n="heroTitle">
+          رجّع سيارتك شبه وكالة بتقنية إصلاح凹ّات على البارد (PDR)
+        </h1>
+
+        <p class="lead" data-i18n="heroLead">
+          نعالج凹ّات وصدمات هيكل السيارة باحتراف، مع الحفاظ على بويا الوكالة قدر الإمكان — تقييم سريع، تنفيذ دقيق، ونتيجة نظيفة.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/966505888003" target="_blank" rel="noopener">
+            💬 <span data-i18n="ctaWhats">حجز عبر واتساب</span>
+          </a>
+          <a class="btn btn-outline" href="tel:966505888003">
+            📞 <span data-i18n="ctaCall">اتصال مباشر</span>
+          </a>
+        </div>
+
+        <div style="margin-top:14px" class="pill" data-i18n="heroCities">
+          📍 نخدم: الرياض والمدينة المنورة — تواصل سريع وتحديد موعد حسب التوفر
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="logo-big">
+          <img src="logo-carrr.jpg" alt="Car RR" />
+        </div>
+        <div class="mini">
+          <div class="chip">
+            <strong data-i18n="mini1a">بدون رش</strong><br />
+            <span data-i18n="mini1b">قدر الإمكان نحافظ على بويا الوكالة</span>
+          </div>
+          <div class="chip">
+            <strong data-i18n="mini2a">وقت أسرع</strong><br />
+            <span data-i18n="mini2b">تنفيذ سريع حسب حالة الضرر</span>
+          </div>
+          <div class="chip">
+            <strong data-i18n="mini3a">دقة أعلى</strong><br />
+            <span data-i18n="mini3b">أدوات احترافية ونتيجة نظيفة</span>
+          </div>
+          <div class="chip">
+            <strong data-i18n="mini4a">تقييم واضح</strong><br />
+            <span data-i18n="mini4b">أرسل صورة ونرد عليك بسرعة</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="servicesTitle">الخدمات</h2>
+        <p data-i18n="servicesDesc">خدمات إصلاح凹ّات وصدمات هيكل السيارة بتقنية PDR — مناسبة لكثير من حالات الأبواب والرفارف والبرد.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🚗</div>
+          <h3 data-i18n="srv1t">凹ّات الأبواب</h3>
+          <p data-i18n="srv1d">إصلاح خبطات المواقف وصدمات الأبواب بدون سمكرة ولا رش (حسب الحالة).</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛞</div>
+          <h3 data-i18n="srv2t">الرفارف والجانبية</h3>
+          <p data-i18n="srv2d">تعديل الانبعاجات في الرفرف والواجهات الجانبية بدقة عالية.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🌧️</div>
+          <h3 data-i18n="srv3t">أضرار البرد</h3>
+          <p data-i18n="srv3d">معالجة الانبعاجات الصغيرة المتكررة الناتجة عن البرد.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💎</div>
+          <h3 data-i18n="srv4t">تجهيز قبل البيع</h3>
+          <p data-i18n="srv4d">تحسين المظهر العام للسيارة لرفع قيمتها وإظهارها بشكل أفضل.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="howTitle">طريقة العمل</h2>
+        <p data-i18n="howDesc">خطوات بسيطة من أول رسالة حتى التسليم — نهدف لتجربة واضحة وسريعة.</p>
+      </div>
+
+      <div class="steps">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3 data-i18n="how1t">أرسل الصور</h3>
+          <p data-i18n="how1d">صورة واضحة للضرر من أكثر من زاوية مع نوع السيارة والموديل.</p>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3 data-i18n="how2t">تقييم وتسعيرة</h3>
+          <p data-i18n="how2d">نحدد مدى مناسبة PDR ونرسل لك تسعيرة ووقت تقريبي.</p>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3 data-i18n="how3t">حجز موعد</h3>
+          <p data-i18n="how3d">تحديد موعد مناسب في الفرع أو حسب التوفر للخدمة في الموقع.</p>
+        </div>
+        <div class="card step">
+          <div class="num">4</div>
+          <h3 data-i18n="how4t">تنفيذ وتسليم</h3>
+          <p data-i18n="how4d">إصلاح احترافي بأدوات PDR ثم معاينة وتسليم السيارة.</p>
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:14px;">
+        <a class="btn btn-whatsapp" href="https://wa.me/966505888003" target="_blank" rel="noopener">
+          💬 <span data-i18n="ctaWhats">حجز عبر واتساب</span>
+        </a>
+        <a class="btn btn-outline" href="tel:966505888003">
+          📞 <span data-i18n="ctaCall">اتصال مباشر</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL + QUICK INFO -->
+  <section id="social">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="socialTitle">منصات التواصل</h2>
+        <p data-i18n="socialDesc">تابع أعمالنا قبل/بعد والعروض والتحديثات.</p>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3 data-i18n="socialBoxTitle">روابط سريعة</h3>
+          <div class="socials" style="margin-top:10px;">
+            <div class="social-item">
+              <div class="left">📷 Instagram <span class="badge">@carr_pdr</span></div>
+              <a class="btn btn-outline" style="padding:10px 14px;" href="https://www.instagram.com/carr_pdr" target="_blank" rel="noopener" data-i18n="visit">زيارة</a>
+            </div>
+
+            <div class="social-item">
+              <div class="left">💬 WhatsApp <span class="badge">0505888003</span></div>
+              <a class="btn btn-outline" style="padding:10px 14px;" href="https://wa.me/966505888003" target="_blank" rel="noopener" data-i18n="open">فتح</a>
+            </div>
+
+            <div class="social-item">
+              <div class="left">🎥 TikTok <span class="badge" data-i18n="tiktokBadge">أضف الرابط</span></div>
+              <a class="btn btn-outline" style="padding:10px 14px;" href="#" onclick="return false;" data-i18n="addLater">لاحقاً</a>
+            </div>
+
+            <div class="social-item">
+              <div class="left">👻 Snapchat <span class="badge" data-i18n="snapBadge">أضف الرابط</span></div>
+              <a class="btn btn-outline" style="padding:10px 14px;" href="#" onclick="return false;" data-i18n="addLater">لاحقاً</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="trustTitle">ليش Car RR؟</h3>
+          <p data-i18n="trustDesc" style="margin-top:6px;">
+            نركز على جودة التنفيذ والنتيجة النهائية، مع تواصل واضح وتسعيرة عادلة حسب الحالة. أرسل صور الضرر وسنرد عليك بسرعة.
+          </p>
+          <div style="margin-top:12px" class="pill" data-i18n="trustNote">✅ النتيجة تختلف حسب مكان وحجم الضرر ومرونة الصاج</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREERS -->
+  <section id="careers">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="careersTitle">التوظيف</h2>
+        <p data-i18n="careersDesc">نبحث عن كفاءات في PDR وخدمة العملاء — قدّم الآن عبر الواتساب.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns: repeat(3, minmax(0,1fr));">
+        <div class="card">
+          <div class="icon">🧰</div>
+          <h3 data-i18n="car1t">فني PDR</h3>
+          <p data-i18n="car1d">خبرة في أدوات PDR ودقة في الإنهاء والتعامل مع العميل.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h3 data-i18n="car2t">استقبال وخدمة عملاء</h3>
+          <p data-i18n="car2d">تنسيق مواعيد، استقبال استفسارات، ومتابعة العملاء.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⚙️</div>
+          <h3 data-i18n="car3t">مساعد تشغيل</h3>
+          <p data-i18n="car3d">دعم عمليات الورشة وتجهيزات العمل ومساعدة الفريق.</p>
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:14px;">
+        <a class="btn btn-whatsapp" href="https://wa.me/966505888003" target="_blank" rel="noopener">
+          💼 <span data-i18n="applyWhats">قدّم عبر واتساب</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section id="training">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="trainingTitle">التدريب</h2>
+        <p data-i18n="trainingDesc">برامج تدريب PDR (نظري + عملي) للمبتدئين والمحترفين — اسألنا عن المواعيد.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns: repeat(3, minmax(0,1fr));">
+        <div class="card">
+          <div class="icon">📘</div>
+          <h3 data-i18n="tr1t">أساسيات PDR</h3>
+          <p data-i18n="tr1d">مفاهيم وتقنيات العمل، قراءة الضرر، وأنواع الأدوات.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧪</div>
+          <h3 data-i18n="tr2t">تطبيق عملي</h3>
+          <p data-i18n="tr2d">تدريب يدوي مكثف على لوحات تدريب وحالات متنوعة.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3 data-i18n="tr3t">تطوير مهارات</h3>
+          <p data-i18n="tr3d">تحسين جودة الإنهاء وتقليل العلامات للحصول على نتيجة نظيفة.</p>
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:14px;">
+        <a class="btn btn-whatsapp" href="https://wa.me/966505888003" target="_blank" rel="noopener">
+          🎓 <span data-i18n="trainingAsk">استفسار عن التدريب</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Floating WhatsApp -->
+<div class="float-wa">
+  <a class="btn btn-whatsapp" href="https://wa.me/966505888003" target="_blank" rel="noopener">
+    💬 <span data-i18n="ctaWhats">حجز عبر واتساب</span>
+  </a>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="year"></span> Car RR</div>
+    <div data-i18n="footerNote">صفحة هبوط — يمكن تعديل النصوص والروابط حسب الاحتياج</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const i18n = {
+    ar: {
+      brandSub: "تصليح السيارات على البارد (PDR)",
+      navServices: "الخدمات",
+      navHow: "طريقة العمل",
+      navSocial: "منصاتنا",
+      navCareers: "التوظيف",
+      navTraining: "التدريب",
+      ctaBook: "حجز موعد",
+
+      pillTop: "🔧 خبراء PDR — بدون سمكرة، بدون رش",
+      heroTitle: "رجّع سيارتك شبه وكالة بتقنية إصلاح凹ّات على البارد (PDR)",
+      heroLead: "نعالج凹ّات وصدمات هيكل السيارة باحتراف، مع الحفاظ على بويا الوكالة قدر الإمكان — تقييم سريع، تنفيذ دقيق، ونتيجة نظيفة.",
+      ctaWhats: "حجز عبر واتساب",
+      ctaCall: "اتصال مباشر",
+      heroCities: "📍 نخدم: الرياض والمدينة المنورة — تواصل سريع وتحديد موعد حسب التوفر",
+
+      mini1a: "بدون رش", mini1b: "قدر الإمكان نحافظ على بويا الوكالة",
+      mini2a: "وقت أسرع", mini2b: "تنفيذ سريع حسب حالة الضرر",
+      mini3a: "دقة أعلى", mini3b: "أدوات احترافية ونتيجة نظيفة",
+      mini4a: "تقييم واضح", mini4b: "أرسل صورة ونرد عليك بسرعة",
+
+      servicesTitle: "الخدمات",
+      servicesDesc: "خدمات إصلاح凹ّات وصدمات هيكل السيارة بتقنية PDR — مناسبة لكثير من حالات الأبواب والرفارف والبرد.",
+      srv1t: "凹ّات الأبواب", srv1d: "إصلاح خبطات المواقف وصدمات الأبواب بدون سمكرة ولا رش (حسب الحالة).",
+      srv2t: "الرفارف والجانبية", srv2d: "تعديل الانبعاجات في الرفرف والواجهات الجانبية بدقة عالية.",
+      srv3t: "أضرار البرد", srv3d: "معالجة الانبعاجات الصغيرة المتكررة الناتجة عن البرد.",
+      srv4t: "تجهيز قبل البيع", srv4d: "تحسين المظهر العام للسيارة لرفع قيمتها وإظهارها بشكل أفضل.",
+
+      howTitle: "طريقة العمل",
+      howDesc: "خطوات بسيطة من أول رسالة حتى التسليم — نهدف لتجربة واضحة وسريعة.",
+      how1t: "أرسل الصور", how1d: "صورة واضحة للضرر من أكثر من زاوية مع نوع السيارة والموديل.",
+      how2t: "تقييم وتسعيرة", how2d: "نحدد مدى مناسبة PDR ونرسل لك تسعيرة ووقت تقريبي.",
+      how3t: "حجز موعد", how3d: "تحديد موعد مناسب في الفرع أو حسب التوفر للخدمة في الموقع.",
+      how4t: "تنفيذ وتسليم", how4d: "إصلاح احترافي بأدوات PDR ثم معاينة وتسليم السيارة.",
+
+      socialTitle: "منصات التواصل",
+      socialDesc: "تابع أعمالنا قبل/بعد والعروض والتحديثات.",
+      socialBoxTitle: "روابط سريعة",
+      visit: "زيارة",
+      open: "فتح",
+      tiktokBadge: "أضف الرابط",
+      snapBadge: "أضف الرابط",
+      addLater: "لاحقاً",
+
+      trustTitle: "ليش Car RR؟",
+      trustDesc: "نركز على جودة التنفيذ والنتيجة النهائية، مع تواصل واضح وتسعيرة عادلة حسب الحالة. أرسل صور الضرر وسنرد عليك بسرعة.",
+      trustNote: "✅ النتيجة تختلف حسب مكان وحجم الضرر ومرونة الصاج",
+
+      careersTitle: "التوظيف",
+      careersDesc: "نبحث عن كفاءات في PDR وخدمة العملاء — قدّم الآن عبر الواتساب.",
+      car1t: "فني PDR", car1d: "خبرة في أدوات PDR ودقة في الإنهاء والتعامل مع العميل.",
+      car2t: "استقبال وخدمة عملاء", car2d: "تنسيق مواعيد، استقبال استفسارات، ومتابعة العملاء.",
+      car3t: "مساعد تشغيل", car3d: "دعم عمليات الورشة وتجهيزات العمل ومساعدة الفريق.",
+      applyWhats: "قدّم عبر واتساب",
+
+      trainingTitle: "التدريب",
+      trainingDesc: "برامج تدريب PDR (نظري + عملي) للمبتدئين والمحترفين — اسألنا عن المواعيد.",
+      tr1t: "أساسيات PDR", tr1d: "مفاهيم وتقنيات العمل، قراءة الضرر، وأنواع الأدوات.",
+      tr2t: "تطبيق عملي", tr2d: "تدريب يدوي مكثف على لوحات تدريب وحالات متنوعة.",
+      tr3t: "تطوير مهارات", tr3d: "تحسين جودة الإنهاء وتقليل العلامات للحصول على نتيجة نظيفة.",
+      trainingAsk: "استفسار عن التدريب",
+
+      footerNote: "صفحة هبوط — يمكن تعديل النصوص والروابط حسب الاحتياج"
+    },
+
+    en: {
+      brandSub: "Paintless Dent Repair (PDR)",
+      navServices: "Services",
+      navHow: "How it works",
+      navSocial: "Social",
+      navCareers: "Careers",
+      navTraining: "Training",
+      ctaBook: "Book",
+
+      pillTop: "🔧 PDR Experts — No paint, no body filler",
+      heroTitle: "Restore your car with Paintless Dent Repair (PDR)",
+      heroLead: "Professional dent repair that preserves the original paint whenever possible — fast assessment, clean results, and transparent communication.",
+      ctaWhats: "Book on WhatsApp",
+      ctaCall: "Call now",
+      heroCities: "📍 Serving: Riyadh & Medina — quick response and easy booking",
+
+      mini1a: "No repaint", mini1b: "Preserve factory paint when possible",
+      mini2a: "Faster service", mini2b: "Quick turnaround depending on damage",
+      mini3a: "High precision", mini3b: "Professional tools & clean finish",
+      mini4a: "Clear assessment", mini4b: "Send photos — we reply fast",
+
+      servicesTitle: "Services",
+      servicesDesc: "Paintless Dent Repair (PDR) for many door, fender, and hail dents — depending on the case.",
+      srv1t: "Door dents", srv1d: "Parking dents and door dings repaired without repainting (case-dependent).",
+      srv2t: "Fenders & sides", srv2d: "Precision repair for fenders and side panels.",
+      srv3t: "Hail damage", srv3d: "Multiple small dents caused by hail are often a great match for PDR.",
+      srv4t: "Pre-sale prep", srv4d: "Improve the car’s look to help increase resale value.",
+
+      howTitle: "How it works",
+      howDesc: "From first message to delivery — a simple and clear process.",
+      how1t: "Send photos", how1d: "Clear photos from multiple angles + car model/year.",
+      how2t: "Assessment & quote", how2d: "We confirm if PDR is suitable and share pricing/time estimate.",
+      how3t: "Book appointment", how3d: "Choose a suitable time at the branch or on-site (if available).",
+      how4t: "Repair & delivery", how4d: "Professional PDR repair followed by inspection and handover.",
+
+      socialTitle: "Social",
+      socialDesc: "See our latest work and updates.",
+      socialBoxTitle: "Quick links",
+      visit: "Visit",
+      open: "Open",
+      tiktokBadge: "Add link",
+      snapBadge: "Add link",
+      addLater: "Later",
+
+      trustTitle: "Why Car RR?",
+      trustDesc: "We focus on quality results, clear communication, and fair pricing based on the dent condition. Send photos for a quick reply.",
+      trustNote: "✅ Results vary depending on dent size, location, and panel flexibility",
+
+      careersTitle: "Careers",
+      careersDesc: "We’re hiring PDR talents and customer service — apply via WhatsApp.",
+      car1t: "PDR Technician", car1d: "Skilled with PDR tools, precise finishing, and good customer handling.",
+      car2t: "Front desk & CS", car2d: "Scheduling, inquiries, and customer follow-ups.",
+      car3t: "Operations Assistant", car3d: "Support workshop operations and team needs.",
+      applyWhats: "Apply via WhatsApp",
+
+      trainingTitle: "Training",
+      trainingDesc: "PDR training (theory + hands-on) for beginners and pros — ask for dates.",
+      tr1t: "PDR Basics", tr1d: "Core techniques, dent reading, and tool types.",
+      tr2t: "Hands-on practice", tr2d: "Intensive manual training with different scenarios.",
+      tr3t: "Skill improvement", tr3d: "Improve finishing quality and reduce tool marks.",
+      trainingAsk: "Ask about training",
+
+      footerNote: "Landing page — customize text and links as needed"
+    }
+  };
+
+  function setLang(lang){
+    const html = document.documentElement;
+    html.lang = lang;
+    html.dir = (lang === "ar") ? "rtl" : "ltr";
+
+    document.getElementById("btn-ar").classList.toggle("active", lang === "ar");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+    const dict = i18n[lang];
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key = el.getAttribute("data-i18n");
+      if(dict[key]) el.textContent = dict[key];
+    });
+  }
+
+  setLang("ar");
+</script>
+</body>
+</html>
