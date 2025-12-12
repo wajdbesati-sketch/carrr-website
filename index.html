@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car RR | تصليح凹ّات السيارات على البارد (PDR)</title>
+  <meta name="description" content="Car RR متخصّصون في تعديل ومعالجة أضرار هيكل السيارة بتقنية PDR بدون سمكرة ولا رش. نخدم الرياض والمدينة المنورة.">
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-dark: #003a7a;
+      --primary-light: #e4f0ff;
+      --accent: #f9a826;
+      --bg: #f5f5f5;
+      --text: #222;
+      --white: #ffffff;
+      --radius: 12px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* الهيدر */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark), #020815);
+      color: var(--white);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .logo-img {
+      height: 42px;
+    }
+
+    .logo-text-main {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .logo-text-sub {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: #dbe8ff;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: #222;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* الهيرو */
+    .hero {
+      background: radial-gradient(circle at top left, var(--primary-light), #ffffff 40%, #f7f9ff 80%);
+      padding: 40px 0 52px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 86, 179, 0.085);
+      color: var(--primary-dark);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      margin-bottom: 12px;
+      font-weight: 800;
+      color: #041933;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 18px;
+      max-width: 480px;
+    }
+
+    .hero-tags {
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+      color: #555;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      padding: 9px 16px;
+      background: transparent;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .hero-right {
+      text-align: center;
+    }
+
+    .hero-logo {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 16px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      text-align: right;
+    }
+
+    .hero-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    .hero-card ul {
+      list-style: none;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card ul li {
+      margin-bottom: 6px;
+    }
+
+    .hero-card strong { color: var(--primary); }
+
+    section { padding: 40px 0; }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .step-card {
+      position: relative;
+      padding-top: 26px;
+    }
+
+    .step-card::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      background: #d9d9d9;
+      border-radius: var(--radius);
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .testimonial .name {
+      margin-top: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    input, textarea {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    textarea { min-height: 80px; resize: vertical; }
+
+    .contact-info p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-info a {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    footer {
+      background: #020815;
+      color: #d2dcff;
+      padding: 16px 0;
+      font-size: 0.8rem;
+      margin-top: 26px;
+    }
+
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-title { font-size: 1.7rem; }
+      .nav-links { display: none; }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Tabs (Arabic / English) ===== */
+    .tabs-container {
+      width: 100%;
+      margin: 40px auto;
+      max-width: 900px;
+    }
+
+    .tabs-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .tabs-buttons button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      background: #ddd;
+      font-weight: 600;
+    }
+
+    .tabs-buttons button.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--white);
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      line-height: 1.7;
+      text-align: right;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-section {
+      margin-bottom: 22px;
+    }
+
+    .tab-section h3 {
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    .tab-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="logo-carrr.png" alt="Car RR Logo" class="logo-img" />
+        <div>
+          <div class="logo-text-main">Car RR</div>
+          <div class="logo-text-sub">تصليح السيارات على البارد (PDR)</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">من نحن</a>
+        <a href="#services">الخدمات</a>
+        <a href="#gallery">أعمالنا</a>
+        <a href="#info-tabs">عربي / English</a>
+        <a href="#contact">التواصل</a>
+      </div>
+      <a href="https://wa.me/966505888003" target="_blank" class="nav-cta">
+        📲 حجز واتساب
+      </a>
+    </div>
+  </header>
+
+  <!-- الهيرو -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-badge">
+          🔧 متخصّصون في PDR – تعديل ومعالجة أضرار هيكل السيارة بدون سمكرة ولا رش
+        </div>
+        <h1 class="hero-title">
+          رجّع سيارتك شبه وكالة  
+          بتقنية تصليح凹ّات على البارد (PDR)
+        </h1>
+        <p class="hero-subtitle">
+          في <strong>Car RR</strong> نصلّح凹ّات وصدمات سيارتك بتقنية <strong>PDR</strong> 
+          بدون ما نلمس بويا الوكالة، وبوقت قصير وجودة عالية.  
+          <span style="font-size:0.85rem; color:#666;">Professional PDR service for your car.</span>
+        </p>
+        <p class="hero-tags">
+          نخدم: <strong>الرياض</strong> و<strong>المدينة المنورة</strong> – الحجز عن طريق الواتساب أو الاتصال المباشر.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://wa.me/966505888003" target="_blank">
+            <button class="btn-primary">حجز موعد عبر الواتساب</button>
+          </a>
+          <a href="tel:966505888003">
+            <button class="btn-outline">اتصال مباشر الآن</button>
+          </a>
+        </div>
+        <p class="hero-note">
+          أرسل صورًا واضحة للضرر من أكثر من زاوية، ونرجع لك بسعر تقديري خلال أقرب وقت.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <img src="logo-carrr.png" alt="Car RR Logo Hero" class="hero-logo" />
+        <div class="hero-card">
+          <h3>Car RR | Expert PDR Works for Cars</h3>
+          <ul>
+            <li>إصلاح凹ّات وصدمات هيكل السيارة بدون بوية.</li>
+            <li>معالجة أضرار الأبواب، الرفارف، الكبوت والشنطة.</li>
+            <li>خدمة احترافية في <strong>الرياض</strong> و<strong>المدينة المنورة</strong>.</li>
+          </ul>
+          <p style="font-size:0.85rem; color:#777;">
+            Follow us on Instagram: <strong>@carr_pdr</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- من نحن -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">من نحن</h2>
+      <p class="section-subtitle">
+        فريق Car RR متخصّص في تعديل ومعالجة أضرار هيكل السيارة بتقنية <strong>PDR</strong> 
+        (Paintless Dent Repair)، وهي تقنية حديثة تعيد شكل السيارة كما كان بدون سمكرة ولا رش.
+      </p>
+
+      <div class="grid-4">
+        <div class="card">
+          <h3>بدون سمكرة ولا رش</h3>
+          <p>نعمل من داخل الصاج ونحافظ على بويا الوكالة بالكامل، وهذا يحافظ على قيمة سيارتك عند البيع.</p>
+        </div>
+        <div class="card">
+          <h3>وقت إنجاز أسرع</h3>
+          <p>الكثير من الصدمات البسيطة والمتوسطة ننهيها خلال وقت قصير مقارنة بالورش التقليدية.</p>
+        </div>
+        <div class="card">
+          <h3>نتيجة تشبه الوكالة</h3>
+          <p>هدفنا أن العين لا تفرّق بين الجزء المعدّل وباقي أجزاء السيارة.</p>
+        </div>
+        <div class="card">
+          <h3>خدمة لمدينتين</h3>
+          <p>نخدم حاليًا الرياض والمدينة المنورة، مع إمكانية التنسيق لخدمات أخرى حسب التوفّر.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الخدمات -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">الخدمات التي نقدّمها</h2>
+      <p class="section-subtitle">
+        نركّز على تصليح凹ّات وصدمات هيكل السيارة بدون بوية وبأعلى جودة ممكنة.
+      </p>
+
+      <div class="grid-4">
+        <div class="card">
+          <h3>تصليح凹ّات الأبواب</h3>
+          <p>معالجة خبطات مواقف السيارات وصدمات الأبواب التي لا تحتاج رش.</p>
+        </div>
+        <div class="card">
+          <h3>تعديل الرفارف والجانبية</h3>
+          <p>تسوية الانبعاجات في الرفارف والجهات الجانبية للسيارة بدون سمكرة.</p>
+        </div>
+        <div class="card">
+          <h3>أضرار البرد والحصى</h3>
+          <p>تصليح الانبعاجات الصغيرة المتكرّرة الناتجة عن البرد أو تطاير الحصى.</p>
+        </div>
+        <div class="card">
+          <h3>تجهيز السيارة قبل البيع</h3>
+          <p>تحسين شكل السيارة من الخبطات البسيطة لرفع مظهرها وسعرها عند العرض.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- خطوات العمل (العامة) -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">كيف تتم عملية التصليح؟</h2>
+      <p class="section-subtitle">
+        خطوات بسيطة توضّح آلية التعامل من أول رسالة حتى تسليم السيارة.
+      </p>
+
+      <div class="steps">
+        <div class="card step-card">
+          <h3>١. إرسال الصور</h3>
+          <p>تصوير مكان الضرر من أكثر من زاوية (قريب وبعيد) وإرسالها على الواتساب مع نوع السيارة.</p>
+        </div>
+        <div class="card step-card">
+          <h3>٢. تقييم الضرر والسعر</h3>
+          <p>نراجع الصور ونخبرك إذا كان الضرر مناسبًا لتقنية PDR، مع إعطاء سعر تقديري ووقت التنفيذ.</p>
+        </div>
+        <div class="card step-card">
+          <h3>٣. تحديد الموعد</h3>
+          <p>ننسّق معك موعد الحضور للفرع المناسب أو – حسب التوفّر – خدمة الحضور للموقع.</p>
+        </div>
+        <div class="card step-card">
+          <h3>٤. تنفيذ العمل والتسليم</h3>
+          <p>ننفّذ التصليح باستخدام أدوات PDR الاحترافية، وبعدها تستلم السيارة وتعاين النتيجة النهائية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- معرض الأعمال -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">قبل وبعد من شغلنا</h2>
+      <p class="section-subtitle">
+        هذه أمثلة بسيطة، باقي الأعمال تجدينها في إنستغرام <strong>@carr_pdr</strong>.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">باب قبل / بعد</div>
+        <div class="gallery-item">رفرف قبل / بعد</div>
+        <div class="gallery-item">سقف قبل / بعد</div>
+        <div class="gallery-item">شنطة قبل / بعد</div>
+      </div>
+
+      <p style="font-size:0.8rem; margin-top:8px; color:#777;">
+        *استبدلي هذه المربعات بصور حقيقية (لقطات من الإنستغرام) عند رفع الصفحة على الاستضافة.
+      </p>
+
+      <p style="margin-top:12px;">
+        <a href="https://www.instagram.com/carr_pdr" target="_blank" class="btn-outline" style="display:inline-block;">
+          🔗 زيارة حساب إنستغرام @carr_pdr
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Tabs: عربي / English -->
+  <section id="info-tabs">
+    <div class="container">
+      <h2 class="section-title">معلومات عن Car RR – عربي / English</h2>
+      <p class="section-subtitle">
+        اختر اللغة المناسبة لعرض تفاصيل بدايتنا، طريقة العمل، التوظيف والتدريب، مع روابط التواصل المباشر.
+      </p>
+
+      <div class="tabs-container">
+
+        <div class="tabs-buttons">
+          <button class="tab-btn active" onclick="showTab(event,'arabic')">العربية</button>
+          <button class="tab-btn" onclick="showTab(event,'english')">English</button>
+        </div>
+
+        <!-- Arabic Tab -->
+        <div id="arabic" class="tab-content active">
+
+          <div class="tab-section">
+            <h3>بدايتنا</h3>
+            <p>
+              بدأت Car RR بهدف تقديم خدمات إصلاح凹ّات السيارات على البارد بتقنية PDR،
+              مع التركيز على الجودة العالية، الدقة في العمل، وخدمة عملاء مميّزة في الرياض والمدينة المنورة.
+            </p>
+          </div>
+
+          <div class="tab-section">
+            <h3>صفحاتنا على منصات التواصل</h3>
+            <p>إنستغرام: @carr_pdr</p>
+            <p>سناب شات: رابط الحساب</p>
+            <p>تيك توك: رابط الحساب</p>
+          </div>
+
+          <div class="tab-section">
+            <h3>طريقة العمل</h3>
+            <p>١- إرسال صور واضحة للضرر من عدّة زوايا.</p>
+            <p>٢- تقييم دقيق وتقديم تسعيرة مناسبة.</p>
+            <p>٣- تحديد الموعد في الفرع أو في الموقع (حسب التوفّر).</p>
+            <p>٤- تنفيذ الإصلاح وتسليم السيارة بعد المعاينة.</p>
+          </div>
+
+          <div class="tab-section">
+            <h3>قسم التوظيف</h3>
+            <p>
+              نبحث عن فنيين محترفين في تقنية PDR، إضافة إلى وظائف استقبال وخدمة عملاء.
+              للتقديم يُرجى إرسال السيرة الذاتية عبر الواتساب أو البريد الإلكتروني الخاص بـ Car RR.
+            </p>
+          </div>
+
+          <div class="tab-section">
+            <h3>قسم التدريب</h3>
+            <p>
+              نقدّم برامج تدريبية شاملة في تقنية إصلاح凹ّات السيارات بدون بوية،
+              تشمل تدريبًا نظريًا وعمليًا باستخدام أحدث الأدوات المعتمدة، للمبتدئين والمحترفين.
+            </p>
+          </div>
+
+          <div class="tab-section">
+            <h3>تواصل وحجز عربي</h3>
+            <div class="tab-cta">
+              <a href="https://wa.me/966505888003" target="_blank">
+                <button class="btn-primary">حجز موعد واتساب</button>
+              </a>
+              <a href="tel:966505888003">
+                <button class="btn-outline">اتصال مباشر</button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- English Tab -->
+        <div id="english" class="tab-content">
+
+          <div class="tab-section">
+            <h3>Our Story</h3>
+            <p>
+              Car RR was founded to provide high-quality paintless dent repair (PDR),
+              focusing on precision, reliable results, and a smooth customer experience
+              for drivers in Riyadh and Medina.
+            </p>
+          </div>
+
+          <div class="tab-section">
+            <h3>Social Media</h3>
+            <p>Instagram: @carr_pdr</p>
+            <p>Snapchat: account link</p>
+            <p>TikTok: account link</p>
+          </div>
+
+          <div class="tab-section">
+            <h3>How We Work</h3>
+            <p>1 – You send clear photos of the damage from multiple angles.</p>
+            <p>2 – We assess the damage and share an accurate quotation.</p>
+            <p>3 – We schedule an appointment at our branch or on-site (when available).</p>
+            <p>4 – We perform the PDR repair and hand the car back after inspection.</p>
+          </div>
+
+          <div class="tab-section">
+            <h3>Careers</h3>
+            <p>
+              We are looking for skilled PDR technicians as well as front-desk
+              and customer service staff.  
+              To apply, please send your CV via WhatsApp or our official email.
+            </p>
+          </div>
+
+          <div class="tab-section">
+            <h3>Training Programs</h3>
+            <p>
+              We offer structured training programs in PDR for beginners and professionals,
+              combining theory with hands-on practice using professional tools and techniques.
+            </p>
+          </div>
+
+          <div class="tab-section">
+            <h3>Contact & Booking (English)</h3>
+            <div class="tab-cta">
+              <a href="https://wa.me/966505888003" target="_blank">
+                <button class="btn-primary">Book via WhatsApp</button>
+              </a>
+              <a href="tel:966505888003">
+                <button class="btn-outline">Call Now</button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- التواصل -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">احجز موعدك أو اطلب تسعيرة الآن</h2>
+      <p class="section-subtitle">
+        يمكنك تعبئة النموذج أو التواصل مباشرة عبر الواتساب أو الاتصال، وسنعود إليك في أقرب وقت ممكن.
+      </p>
+
+      <div class="contact-grid">
+        <div class="card">
+          <form onsubmit="event.preventDefault(); alert('تم إرسال الطلب شكليًا. فعّل النموذج لاحقًا بربطه بخدمة بريد أو نظام واتساب.');">
+            <div>
+              <label for="name">الاسم</label>
+              <input id="name" type="text" placeholder="اكتب اسمك" required />
+            </div>
+            <div>
+              <label for="phone">رقم الجوال</label>
+              <input id="phone" type="tel" placeholder="05XXXXXXXX" required />
+            </div>
+            <div>
+              <label for="city">المدينة</label>
+              <input id="city" type="text" placeholder="الرياض / المدينة المنورة" />
+            </div>
+            <div>
+              <label for="car">نوع السيارة والموديل</label>
+              <input id="car" type="text" placeholder="مثال: هيونداي سوناتا 2021" />
+            </div>
+            <div>
+              <label for="details">وصف مختصر للضرر</label>
+              <textarea id="details" placeholder="وين مكان الصدمة؟ باب؟ رفرف؟ حجمها تقريبًا؟"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">إرسال طلب تسعيرة</button>
+            <p style="font-size:0.8rem; color:#777; margin-top:6px;">
+              بعد إرسال الطلب يفضّل إرسال صور الضرر على الواتساب لتأكيد السعر بدقة.
+            </p>
+          </form>
+        </div>
+
+        <div class="card contact-info">
+          <p><strong>رقم الجوال:</strong> <a href="tel:966505888003">0505888003</a></p>
+          <p><strong>واتساب مباشر:</strong> <a href="https://wa.me/966505888003" target="_blank">اضغط هنا لبدء المحادثة</a></p>
+          <p><strong>إنستغرام:</strong> <a href="https://www.instagram.com/carr_pdr" target="_blank">@carr_pdr</a></p>
+          <p style="margin-top:10px;">
+            نخدم: <strong>الرياض</strong> و<strong>المدينة المنورة</strong> – تفاصيل الموقع تُرسل عند الحجز.
+          </p>
+          <hr style="margin:12px 0; border:none; border-top:1px solid #eee;">
+          <p style="font-size:0.85rem;">
+            أوقات العمل المتوقّعة:  
+            السبت – الخميس: 9:00 ص – 10:00 م  
+            (يمكن تعديلها حسب أوقاتكم الفعلية.)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Car RR – تصليح السيارات على البارد (PDR).</div>
+      <div>صفحة هبوط تجريبية، يمكن تعديل النصوص والأرقام لاحقًا حسب سياسة Car RR.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function showTab(e, tabName) {
+      const tabs = document.querySelectorAll(".tab-content");
+      const buttons = document.querySelectorAll(".tab-btn");
+
+      tabs.forEach(tab => tab.classList.remove("active"));
+      buttons.forEach(btn => btn.classList.remove("active"));
+
+      document.getElementById(tabName).classList.add("active");
+      e.target.classList.add("active");
+    }
+  </script>
+</body>
+</html>
